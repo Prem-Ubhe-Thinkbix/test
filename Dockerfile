@@ -3,6 +3,7 @@ FROM node:18-alpine AS deps
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
+# RUN npm ci --prefer-offline --no-audit --progress=false
 
 # 2. Build the app
 FROM node:18-alpine AS builder
